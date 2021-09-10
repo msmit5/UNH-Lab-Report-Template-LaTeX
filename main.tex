@@ -1,0 +1,51 @@
+\documentclass{article}[12pt]
+% 12 pt is selected because main body is written in 12 pt font
+
+\usepackage[letterpaper, margin=1in]{geometry}% This is done to make the page geometry similar to U.S MS Word default page geometry
+\usepackage{fontspec}
+\usepackage{setspace} % This is include in case double spacing is needed
+\usepackage{graphicx} % This is for the university logo in the title page, and all figures.
+
+\setmainfont{Times New Roman} % If you are on linux, you should download the TNR font
+															% This is done because the font used in the docx provided is Times New Roman
+\setlength\parindent{.5in} %MS word default
+%\setlength\parskip{1em} % Might not be necessary. Might be vestigial from the template I made to look like a generic MS word essay.
+
+\newcommand\tab[1][.5in]{\hspace*{#1}}  % Simple command for tabs.
+																				% I first saw this in the lab templates for Intro to Cyber Forensics and Small Scale Digital Forensics.
+																			  % Originally said 1cm, however it was changed to .5in to be more wordlike
+
+%+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= 
+%    												In this section, there will be the variables which will dictate data for the title page
+
+\newcommand{\tpageTitle}{Title} 											% PLACE LAB TITLE HERE
+\newcommand{\tpageCourseNo}{Course name and number} 	% PLACE COURSE NAME AND NO. HERE
+\newcommand{\tpageNameID}{Your Name and ID} 					% PLACE NAME AND ID NO. HERE
+\newcommand{\tpageDepartment}{Name of Your Department}% PLACE DEPARTMENT NAME HERE
+\newcommand{\tpageDate}{Date} 												% PLACE DATE HERE
+\newcommand{\tpageInstructor}{Instructor Name} 				% PLACE INSTRUCTOR NAME HERE!
+
+%+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= 
+\begin{document}
+	\noindent
+
+	\input{Sections/0_TitlePage.tex} % The clearpage is necessary here!
+	\clearpage %This separates the title from the abstract!
+	
+	% Clearpages are optional past here.
+	% I use a vim command for adding them:
+	% :%s/.tex}\n/.tex}^M^I\\clearpage^M/g
+	% The ^M is equivalent to pressing CTRL + V, CTRL + M
+	% The ^I is equivalent to tab
+	
+	% In order to remove the clearpage, you can use the vim command 
+	% :%s/}\n^I\\clearpage/}/g
+
+	\large % This is here because for whatever reason the \normalsize is giving a font that seems to be around 10 pt
+	\input{Sections/1_Abstract.tex}
+	\input{Sections/2_Introduction.tex}
+	\input{Sections/3_Methods.tex}
+	\input{Sections/4_Results.tex}
+	\input{Sections/5_DiscussionOrAnalysis.tex}
+	\input{Sections/6_Conclusion.tex}
+\end{document}
